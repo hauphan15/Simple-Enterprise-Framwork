@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectDB", "ConnectDB\ConnectDB.csproj", "{84449ABA-7CC0-480D-B208-FE14FC2B0983}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "ConnectDB\Demo.csproj", "{84449ABA-7CC0-480D-B208-FE14FC2B0983}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB", "DB\DB.csproj", "{7BD439E1-C6CD-47A1-B502-3D874FC5A686}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{84449ABA-7CC0-480D-B208-FE14FC2B0983}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84449ABA-7CC0-480D-B208-FE14FC2B0983}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84449ABA-7CC0-480D-B208-FE14FC2B0983}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BD439E1-C6CD-47A1-B502-3D874FC5A686}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BD439E1-C6CD-47A1-B502-3D874FC5A686}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BD439E1-C6CD-47A1-B502-3D874FC5A686}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BD439E1-C6CD-47A1-B502-3D874FC5A686}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,7 @@
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\DB\bin\Debug\DB.exe.config
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\DB\bin\Debug\DB.exe
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\DB\bin\Debug\DB.pdb
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\DB\obj\Debug\DB.csprojAssemblyReference.cache
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\DB\obj\Debug\DB.csproj.CoreCompileInputs.cache
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\DB\obj\Debug\DB.exe
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\DB\obj\Debug\DB.pdb
