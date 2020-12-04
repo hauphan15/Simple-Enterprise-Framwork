@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ConnectDB.Properties
+namespace Demo.Properties
 {
 
 

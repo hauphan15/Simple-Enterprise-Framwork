@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F8EC905A-C3BC-4CD0-A916-5F3FF47F96D2}</ProjectGuid>
+    <ProjectGuid>{A5B05FC9-DE7D-4B2C-A5BB-05E3B1D05528}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>SEP_Framework</RootNamespace>
-    <AssemblyName>SEP_Framework</AssemblyName>
+    <RootNamespace>Demo</RootNamespace>
+    <AssemblyName>Demo</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -1,4 +1,4 @@
-﻿namespace ConnectDB
+﻿namespace Demo
 {
     partial class Form1
     {
