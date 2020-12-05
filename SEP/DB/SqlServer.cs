@@ -100,19 +100,22 @@ namespace DB
             string query = "SELECT data_type as 'DATA_TYPE' FROM information_schema.columns WHERE table_name =  @tableName AND column_name = @field";
             foreach (var table in tables)
             {
-                SqlCommand sqlCommand;
-                sqlCommand = connection.CreateCommand();
-                sqlCommand.CommandText = query;
-                sqlCommand.Parameters.AddWithValue("@tableName", table.tableName);
-                sqlCommand.Parameters.AddWithValue("@field",table.lstColumnNames[0]);
-
-                using (DbDataReader reader = sqlCommand.ExecuteReader())
+                foreach (var column in table.lstColumnNames)
                 {
-                    if (reader.HasRows)
+                    SqlCommand sqlCommand;
+                    sqlCommand = connection.CreateCommand();
+                    sqlCommand.CommandText = query;
+                    sqlCommand.Parameters.AddWithValue("@tableName", table.tableName);
+                    sqlCommand.Parameters.AddWithValue("@field", column);
+
+                    using (DbDataReader reader = sqlCommand.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.HasRows)
                         {
-                            table.AddTypeOfColumn("columnName", reader.GetString(0));
+                            while (reader.Read())
+                            {
+                                table.AddTypeOfColumn(column, reader.GetString(0));
+                            }
                         }
                     }
                 }
