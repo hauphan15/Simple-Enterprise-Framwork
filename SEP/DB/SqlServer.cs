@@ -69,5 +69,82 @@ namespace DB
             }
             connection.Close();
         }
+
+        public void ReadNotNullColumnName()
+        {
+            connection.Open();
+            string query = "SELECT TABLE_CATALOG AS TABLE_NAME, COLUMN_NAME, IS_NULLABLE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = @tableName AND IS_NULLABLE = 'NO'";
+            foreach (var table in tables)
+            {
+                SqlCommand sqlCommand;
+                sqlCommand = connection.CreateCommand();
+                sqlCommand.CommandText = query;
+                sqlCommand.Parameters.AddWithValue("@tableName", table.tableName);
+
+                using (DbDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            table.AddNotNullCoumnName(reader.GetString(0));
+                        }
+                    }
+                }
+            }
+            connection.Close();
+        }
+        public void ReadColumnType()
+        {
+            connection.Open();
+            string query = "SELECT data_type as 'DATA_TYPE' FROM information_schema.columns WHERE table_name =  @tableName AND column_name = @field";
+            foreach (var table in tables)
+            {
+                SqlCommand sqlCommand;
+                sqlCommand = connection.CreateCommand();
+                sqlCommand.CommandText = query;
+                sqlCommand.Parameters.AddWithValue("@tableName", table.tableName);
+                sqlCommand.Parameters.AddWithValue("@field",table.lstColumnNames[0]);
+
+                using (DbDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            table.AddTypeOfColumn("columnName", reader.GetString(0));
+                        }
+                    }
+                }
+            }
+            connection.Close();
+        }
+
+        public void ReadPrimaryKey()
+        {
+            connection.Open();
+            string query = "SELECT Col.Column_Name from INFORMATION_SCHEMA.TABLE_CONSTRAINTS Tab, INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE Col WHERE Col.Constraint_Name = Tab.Constraint_Name AND Col.Table_Name = Tab.Table_Name AND Constraint_Type = 'PRIMARY KEY' AND Col.Table_Name =  @tableName";
+            foreach (var table in tables)
+            {
+                SqlCommand sqlCommand;
+                sqlCommand = connection.CreateCommand();
+                sqlCommand.CommandText = query;
+                sqlCommand.Parameters.AddWithValue("@tableName", table.tableName);
+
+                using (DbDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            table.primaryKey = reader.GetString(0);
+                        }
+                    }
+                }
+            }
+            connection.Close();
+        }
+
+
     }
 }
