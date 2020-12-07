@@ -148,6 +148,34 @@ namespace DB
             connection.Close();
         }
 
+        public void ReadData()
+        {
+            connection.Open();
+            
+            foreach (var table in tables)
+            {
+                string query = "select * from " +table.tableName;
+                SqlCommand sqlCommand;
+                sqlCommand = connection.CreateCommand();
+                sqlCommand.CommandText = query;
+                
+                using (DbDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                table.AddValueOfColumn(table.lstColumnNames[i], reader.GetValue(i).ToString());
+                            }
+                        }
+                    }
+                }
+            }
+            connection.Close();
+        }
+
 
     }
 }

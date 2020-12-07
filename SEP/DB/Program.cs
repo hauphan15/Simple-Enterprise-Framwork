@@ -15,8 +15,7 @@ namespace DB
             sr.GetTableName();
             sr.ReadColumnName();
             sr.ReadColumnType();
-            sr.ReadNotNullColumnName();
-            sr.ReadPrimaryKey();
+            sr.ReadData();
         }
     }
 }
