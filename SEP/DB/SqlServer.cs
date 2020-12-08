@@ -165,10 +165,12 @@ namespace DB
                     {
                         while (reader.Read())
                         {
+                            Dictionary<string, string> record = new Dictionary<string, string>();
                             for (int i = 0; i < reader.FieldCount; i++)
                             {
-                                table.AddValueOfColumn(table.lstColumnNames[i], reader.GetValue(i).ToString());
+                                record.Add(table.lstColumnNames[i], reader.GetValue(i).ToString());
                             }
+                            table.rows.Add(record);
                         }
                     }
                 }
