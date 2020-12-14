@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FormFactory;
 
-namespace Demo
+namespace FormFactory
 {
     static class Program
     {
@@ -17,11 +16,7 @@ namespace Demo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //IForm main = new MainFormFactory();
-            //Application.Run(main.createForm("DESKTOP-TPBIN8U", "StudentList", "", ""));
-
-            IForm login = new LoginFormFactory();
-            Application.Run(login.createForm("","","","")); //factory method
+            Application.Run();
         }
     }
 }
