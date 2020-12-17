@@ -28,3 +28,18 @@ C:\Users\MrHauPhan\Desktop\OOP Design Patterns\DoAn\Simple-Enterprise-Framwork\S
 C:\Users\MrHauPhan\Desktop\OOP Design Patterns\DoAn\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.csproj.CopyComplete
 C:\Users\MrHauPhan\Desktop\OOP Design Patterns\DoAn\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.exe
 C:\Users\MrHauPhan\Desktop\OOP Design Patterns\DoAn\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.pdb
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\bin\Debug\Forms.exe.config
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\bin\Debug\Forms.exe
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\bin\Debug\Forms.pdb
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\bin\Debug\DB.exe
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\bin\Debug\DB.pdb
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\bin\Debug\DB.exe.config
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.csprojAssemblyReference.cache
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.LoginForm.resources
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.MainForm.resources
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.Properties.Resources.resources
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.csproj.GenerateResource.cache
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.csproj.CoreCompileInputs.cache
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.csproj.CopyComplete
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.exe
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.pdb
