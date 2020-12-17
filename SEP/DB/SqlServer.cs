@@ -29,8 +29,34 @@ namespace DB
             connection = Connector.GetConnection(this);
         }
 
+        public string CheckConnection()
+        {
+            try
+            {
+                if(connection == null)
+                {
+                    return "Err1";
+                }
+                if(connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+                connection.Open();
+                connection.Close();
+            }
+            catch
+            {
+                return "Err1";
+            }
+            return null;
+        }
+
         public void GetTableName()
         {
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+            }
             connection.Open();
             DataTable ltb = connection.GetSchema("Tables");
 
@@ -47,6 +73,10 @@ namespace DB
 
         public void ReadColumnName()
         {
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+            }
             connection.Open();
             string query = "SELECT column_name as 'Column Name' FROM information_schema.columns WHERE table_name =  @tableName";
             foreach (var table in tables)
@@ -72,6 +102,10 @@ namespace DB
 
         public void ReadNotNullColumnName()
         {
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+            }
             connection.Open();
             string query = "SELECT TABLE_CATALOG AS TABLE_NAME, COLUMN_NAME, IS_NULLABLE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = @tableName AND IS_NULLABLE = 'NO'";
             foreach (var table in tables)
@@ -96,6 +130,10 @@ namespace DB
         }
         public void ReadColumnType()
         {
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+            }
             connection.Open();
             string query = "SELECT data_type as 'DATA_TYPE' FROM information_schema.columns WHERE table_name =  @tableName AND column_name = @field";
             foreach (var table in tables)
@@ -125,6 +163,10 @@ namespace DB
 
         public void ReadPrimaryKey()
         {
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+            }
             connection.Open();
             string query = "SELECT Col.Column_Name from INFORMATION_SCHEMA.TABLE_CONSTRAINTS Tab, INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE Col WHERE Col.Constraint_Name = Tab.Constraint_Name AND Col.Table_Name = Tab.Table_Name AND Constraint_Type = 'PRIMARY KEY' AND Col.Table_Name =  @tableName";
             foreach (var table in tables)
@@ -150,6 +192,10 @@ namespace DB
 
         public void ReadData()
         {
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+            }
             connection.Open();
             
             foreach (var table in tables)

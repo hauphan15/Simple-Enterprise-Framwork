@@ -13,19 +13,20 @@ namespace DB
         private Connector() { }
         public static SqlConnection GetConnection(SqlServer sql)
         {
-            if(connection == null)
-            {
                 if (!MakeConnection(sql))
                 {
                     return null;
                 }
-            }
             return connection;
         }
 
         private static bool MakeConnection(SqlServer sql)
         {
             string connectionString;
+            if (string.IsNullOrEmpty(sql.dtSource))
+            {
+                return false;
+            }
             if (string.IsNullOrEmpty(sql.dbName))
             {
                 connectionString = @"Data Source=" + sql.dtSource + "; Integrated Security = True";

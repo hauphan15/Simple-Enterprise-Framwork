@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DB;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,12 +22,24 @@ namespace Forms
             txtPassword.Text = "";
         }
 
+        private SqlServer sqlServer = null;
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            this.Hide();
-
-            var mainForm = new MainForm(txtServerName.Text, txtDbName.Text, txtUsername.Text, txtPassword.Text);
-            mainForm.Show();
+            sqlServer = new SqlServer(txtDbName.Text, txtServerName.Text, txtUsername.Text, txtPassword.Text);
+            string check = sqlServer.CheckConnection();
+            if (string.IsNullOrEmpty(check))
+            {
+                this.Hide();
+                var mainForm = new MainForm(txtServerName.Text, txtDbName.Text, txtUsername.Text, txtPassword.Text);
+                mainForm.Show();
+            }
+            else
+            {
+                var message = new Message(check);
+                message.Show();
+            }
+            
         }
 
         private void btnExit_Click(object sender, EventArgs e)
