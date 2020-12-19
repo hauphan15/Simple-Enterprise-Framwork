@@ -31,6 +31,9 @@ namespace Forms
             databaseConnection.ReadColumnName();
             databaseConnection.ReadColumnType();
             databaseConnection.ReadData();
+            databaseConnection.ReadPrimaryKey();
+            databaseConnection.ReadNotNullColumnName();
+            databaseConnection.ReadColumnAutoIncrement();
 
             //thêm các bảng vào combobox
             foreach (var table in databaseConnection.tables)
@@ -89,6 +92,18 @@ namespace Forms
         private void cbxTable_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadTable(cbxTable.Text);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var add = new AddForm(databaseConnection.tables[0]);
+            add.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var add = new UpdateForm(databaseConnection.tables[0]);
+            add.ShowDialog();
         }
     }
 }

@@ -121,7 +121,7 @@ namespace DB
                     {
                         while (reader.Read())
                         {
-                            table.AddNotNullCoumnName(reader.GetString(0));
+                            table.AddNotNullCoumnName(reader.GetString(1));
                         }
                     }
                 }
@@ -217,6 +217,35 @@ namespace DB
                                 record.Add(table.lstColumnNames[i], reader.GetValue(i).ToString());
                             }
                             table.rows.Add(record);
+                        }
+                    }
+                }
+            }
+            connection.Close();
+        }
+
+        public void ReadColumnAutoIncrement()
+        {
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+            }
+            connection.Open();
+            string query = "SELECT name FROM sys.identity_columns " + "WHERE object_id = OBJECT_ID(@tableName)";
+            foreach (var table in tables)
+            {
+                SqlCommand sqlCommand;
+                sqlCommand = connection.CreateCommand();
+                sqlCommand.CommandText = query;
+                sqlCommand.Parameters.AddWithValue("@tableName", table.tableName);
+
+                using (DbDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            table.AutoIncrementColumnNames = reader.GetString(0);
                         }
                     }
                 }

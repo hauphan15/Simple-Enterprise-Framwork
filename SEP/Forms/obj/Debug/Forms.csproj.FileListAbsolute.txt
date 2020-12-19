@@ -44,3 +44,4 @@ C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.
 C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.exe
 C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.pdb
 C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.Message.resources
+C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.BaseForm.resources

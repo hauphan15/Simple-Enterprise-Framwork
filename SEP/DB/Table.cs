@@ -12,10 +12,10 @@ namespace DB
         public string primaryKey { get; set; }
 
         public List<string> listNotNullColumnNames = new List<string>();
+        public string AutoIncrementColumnNames { get; set; }
         public List<string> lstColumnNames = new List<string>();
         public Dictionary<string, string> typeOfColumns = new Dictionary<string, string>();
         public List<Dictionary<string, string>> rows = new List<Dictionary<string, string>>();
-
         public void AddColumnName(string name)
         {
             lstColumnNames.Add(name);
