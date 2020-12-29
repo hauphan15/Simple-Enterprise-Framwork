@@ -96,13 +96,13 @@ namespace Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var add = new AddForm(databaseConnection.tables[0]);
+            var add = new AddForm(databaseConnection.tables[0], databaseConnection);
             add.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var add = new UpdateForm(databaseConnection.tables[0]);
+            var add = new UpdateForm(databaseConnection.tables[0], databaseConnection);
             add.ShowDialog();
         }
     }

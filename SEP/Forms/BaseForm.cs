@@ -11,24 +11,26 @@ using System.Windows.Forms;
 
 namespace Forms
 {
-    public partial class BaseForm : Form
+    public abstract partial class BaseForm : Form
     {
         public BaseForm()
         {
             InitializeComponent();
         }
-        public BaseForm(Table table)
+        public BaseForm(Table table, SqlServer server)
         {
             InitializeComponent();
             Mytable = table;
+            Myserver = server;
             CreateForm();
         }
         protected Table Mytable = null;
+        protected SqlServer Myserver = null;
         
         private void CreateForm()
         {
             int space = 0;
-            int idx = 1;
+            int idx = 0;
             foreach(var column in Mytable.lstColumnNames)
             {
                 Label label = new Label();
@@ -53,11 +55,6 @@ namespace Forms
                     this.Controls.Add(pictureBox);
                 }
 
-                if(column == Mytable.AutoIncrementColumnNames)
-                {
-                    textBox.Enabled = false;
-                }
-
                 var temp = Mytable.listNotNullColumnNames.FirstOrDefault(x => x == column);
 
                 if (temp != null)
@@ -70,6 +67,11 @@ namespace Forms
                     label1.TextAlign = ContentAlignment.MiddleLeft;
                     label1.ForeColor = Color.Red;
                     this.Controls.Add(label1);
+                }
+
+                if (column == Mytable.AutoIncrementColumnNames)
+                {
+                    textBox.Enabled = false;
                 }
 
                 space += 40;
@@ -85,6 +87,7 @@ namespace Forms
                 Size = new Size(100, 30),
                 Text = "Submit"
             };
+            btn1.Click += new EventHandler(btn1_click);
             Button btn2 = new Button()
             {
                 Name = "btnCancel",
@@ -99,5 +102,78 @@ namespace Forms
             this.Controls.Add(btn1);
             this.Controls.Add(btn2);
         }
+        private void btn1_click(object sender, EventArgs e)
+        {
+           if( CheckisNull())
+            {
+                AddorUpdate();
+            }
+        }
+
+        private bool CheckisNull()
+        {
+            var lst1 = Mytable.AutoIncrementColumnNames;
+            var lst2 = Mytable.listNotNullColumnNames;
+            var lst3 = Mytable.lstColumnNames;
+            for(int i = 0; i<lst3.Count; i++)
+            {
+                var j = lst2.FirstOrDefault(x => x == lst3[i]);
+                if (!string.IsNullOrEmpty(j))
+                {
+                    var t = getDataTextBox("txt" + i);
+                    if (string.IsNullOrEmpty(t))
+                    {
+                        if(checkTextboxEnable("txt" + i))
+                        {
+                                                    MessageBox.Show("fields required cant not null!");
+                        return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+
+        protected string getDataTextBox(string textboxName)
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox)
+                    if ((control as TextBox).Name == textboxName)
+                    {
+                        return control.Text;
+                    }
+            }
+            return "";
+        }
+
+        protected bool checkTextboxEnable(string textboxName)
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox)
+                {
+                    if ((control as TextBox).Name == textboxName)
+                    {
+                        return (control as TextBox).Enabled;
+                    }
+                }
+
+            }
+            return true;
+        }
+
+        protected void ClearTextBox()
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox)
+                {
+                    (control as TextBox).Text = "";
+                }
+
+            }
+        }
+        protected abstract int AddorUpdate();
     }
 }

@@ -18,11 +18,17 @@ namespace Forms
             InitializeComponent();
         }
 
-        public UpdateForm(Table table) : base(table)
+        public UpdateForm(Table table, SqlServer server) : base(table, server)
         {
             InitializeComponent();
             base.Name = "UpdateForm";
             label1.Text = "Cập Nhật Data Cho Bảng: " + table.tableName;
+        }
+
+        protected override int AddorUpdate()
+        {
+            MessageBox.Show("abc");
+            return 1;
         }
     }
 }

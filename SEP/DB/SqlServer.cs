@@ -253,6 +253,51 @@ namespace DB
             connection.Close();
         }
 
+        public bool InsertData(Dictionary<string, string> values, Table table)
+        {
+            StringBuilder columnFields = new StringBuilder();
+            StringBuilder valuesFields = new StringBuilder();
+            columnFields.Append("(");
+            valuesFields.Append("(");
+            var lstColumn = table.lstColumnNames.Where(x => x != table.AutoIncrementColumnNames).ToList();
+            for (int i = 0; i < lstColumn.Count; i++)
+            {
+                columnFields.Append(lstColumn[i]);
+                valuesFields.Append("@param" + i);
+                if (i < lstColumn.Count - 1)
+                {
+                    columnFields.Append(",");
+                    valuesFields.Append(",");
+                }
+            }
+            columnFields.Append(")");
+            valuesFields.Append(")");
+            string query = "Insert into" + " " + table.tableName + " " + columnFields
+                + " " + "values" + " " + valuesFields;
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+            }
+            connection.Open();
+            try
+            {
+                SqlCommand sqlCommand = connection.CreateCommand();
+                sqlCommand.CommandText = query;
+                for (int i = 0; i < lstColumn.Count; i++)
+                {
+                    sqlCommand.Parameters.AddWithValue("@param" + i, values[lstColumn[i]]);
+                }
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch
+            {
+                connection.Close();
+                return false;
+            }
+            connection.Close();
+
+            return true;
+        }
 
     }
 }
