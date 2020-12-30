@@ -224,6 +224,47 @@ namespace DB
             connection.Close();
         }
 
+        public void ReadDataTable(string tableName)
+        {
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+            }
+            connection.Open();
+
+            var table = tables.FirstOrDefault(x => x.tableName == tableName);
+
+            string query = "select * from " + table.tableName;
+            SqlCommand sqlCommand;
+            sqlCommand = connection.CreateCommand();
+            sqlCommand.CommandText = query;
+            table.rows = new List<Dictionary<string, string>>();
+            using (DbDataReader reader = sqlCommand.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Dictionary<string, string> record = new Dictionary<string, string>();
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            record.Add(table.lstColumnNames[i], reader.GetValue(i).ToString());
+                        }
+                        table.rows.Add(record);
+                    }
+                }
+            }
+            for(int i = 0; i<=tables.Count;i++)
+            {
+                if(tables[i].tableName == table.tableName)
+                {
+                    tables[i] = table;
+                    break;
+                }
+            }    
+            connection.Close();
+        }
+
         public void ReadColumnAutoIncrement()
         {
             if (connection.State == ConnectionState.Open)
@@ -251,6 +292,11 @@ namespace DB
                 }
             }
             connection.Close();
+        }
+
+        public Table GetTable(string name)
+        {
+            return tables.FirstOrDefault(a => a.tableName == name);
         }
 
         public bool InsertData(Dictionary<string, string> values, Table table)
@@ -290,6 +336,51 @@ namespace DB
                 sqlCommand.ExecuteNonQuery();
             }
             catch
+            {
+                connection.Close();
+                return false;
+            }
+            connection.Close();
+
+            return true;
+        }
+
+        public bool UpdateData(Dictionary<string, object> values, Table table, Dictionary<string, object> oldValues)
+        {
+            StringBuilder setFields = new StringBuilder();
+            StringBuilder whereFields = new StringBuilder();
+            var lst = table.lstColumnNames.Where(x => x != table.AutoIncrementColumnNames).ToList();
+            for(int i = 0; i < lst.Count; i++)
+            {
+                setFields.Append(lst[i] + "=@parama" + i + " ");
+                whereFields.Append(lst[i] + "=@paramb" + i + " ");
+                if (i != lst.Count - 1)
+                {
+                    setFields.Append(" , ");
+                    whereFields.Append(" and ");
+                }
+            }
+            string query = "update " + table.tableName + " set " + setFields + " where " + whereFields;
+
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+            }
+            connection.Open();
+            var s = "";
+            try
+            {
+                SqlCommand sqlCommand = connection.CreateCommand();
+                sqlCommand.CommandText = query;
+                for (int i = 0; i < lst.Count; i++)
+                {
+                    sqlCommand.Parameters.AddWithValue("@parama" + i, values[lst[i]].ToString());
+                    sqlCommand.Parameters.AddWithValue("@paramb" + i, oldValues[lst[i]].ToString());
+                }
+                s = sqlCommand.CommandText.ToString();
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch(Exception e)
             {
                 connection.Close();
                 return false;

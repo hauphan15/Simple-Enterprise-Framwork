@@ -30,17 +30,17 @@ namespace Forms
             databaseConnection.GetTableName();
             databaseConnection.ReadColumnName();
             databaseConnection.ReadColumnType();
-            databaseConnection.ReadData();
             databaseConnection.ReadPrimaryKey();
             databaseConnection.ReadNotNullColumnName();
             databaseConnection.ReadColumnAutoIncrement();
+            databaseConnection.ReadDataTable(databaseConnection.tables[0].tableName);
 
             //thêm các bảng vào combobox
             foreach (var table in databaseConnection.tables)
             {
                 cbxTable.Items.Add(table.tableName);
             }
-
+            cbxTable.SelectedIndex = 0;
             //mặc định chạy lên là load table[0]
             LoadTable(databaseConnection.tables[0].tableName);
         }
@@ -91,19 +91,45 @@ namespace Forms
 
         private void cbxTable_SelectedIndexChanged(object sender, EventArgs e)
         {
+            databaseConnection.ReadDataTable(cbxTable.Text);
             LoadTable(cbxTable.Text);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var add = new AddForm(databaseConnection.tables[0], databaseConnection);
+            var add = new AddForm(findTable(), databaseConnection);
             add.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var add = new UpdateForm(databaseConnection.tables[0], databaseConnection);
+            var add = new UpdateForm(findTable(), databaseConnection, getCurrentRow());
             add.ShowDialog();
+        }
+
+        private Table findTable()
+        {
+            return databaseConnection.tables.FirstOrDefault(x => x.tableName == cbxTable.Text);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            databaseConnection.ReadDataTable(cbxTable.Text);
+            LoadTable(cbxTable.Text);
+        }
+
+        private Dictionary<string, object> getCurrentRow()
+        {
+            var selRow = gridView.CurrentCell.RowIndex;
+            //MessageBox.Show(selRow.ToString());
+            var columns = databaseConnection.GetTable(cbxTable.Text).lstColumnNames;
+            var row = gridView.Rows[selRow];
+            Dictionary<string, object> obj = new Dictionary<string, object>();
+            for (int i = 0; i < columns.Count; i++)
+            {
+                obj.Add(columns[i], row.Cells[i].Value);
+            }
+            return obj;
         }
     }
 }

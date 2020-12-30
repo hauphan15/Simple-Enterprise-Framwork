@@ -24,9 +24,19 @@ namespace Forms
             Myserver = server;
             CreateForm();
         }
+        public BaseForm(Table table, SqlServer server, Dictionary<string, object> row)
+        {
+            InitializeComponent();
+            Mytable = table;
+            Myserver = server;
+            Myrow = row;
+            CreateForm();
+        }
         protected Table Mytable = null;
         protected SqlServer Myserver = null;
-        
+        protected Dictionary<string, object> Myrow = new Dictionary<string, object>();
+
+
         private void CreateForm()
         {
             int space = 0;
@@ -72,6 +82,11 @@ namespace Forms
                 if (column == Mytable.AutoIncrementColumnNames)
                 {
                     textBox.Enabled = false;
+                }
+
+                if (Myrow.ContainsKey(column))
+                {
+                    textBox.Text = Myrow[column].ToString();
                 }
 
                 space += 40;
