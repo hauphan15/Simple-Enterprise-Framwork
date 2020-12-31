@@ -45,3 +45,20 @@ C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.
 C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.pdb
 C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.Message.resources
 C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.BaseForm.resources
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Forms\bin\Debug\Forms.exe.config
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Forms\bin\Debug\Forms.exe
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Forms\bin\Debug\Forms.pdb
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Forms\bin\Debug\DB.exe
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Forms\bin\Debug\DB.pdb
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Forms\bin\Debug\DB.exe.config
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.csprojAssemblyReference.cache
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.BaseForm.resources
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.LoginForm.resources
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.MainForm.resources
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.Message.resources
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.Properties.Resources.resources
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.csproj.GenerateResource.cache
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.csproj.CoreCompileInputs.cache
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.csproj.CopyComplete
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.exe
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Forms\obj\Debug\Forms.pdb

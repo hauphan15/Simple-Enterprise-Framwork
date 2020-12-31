@@ -55,3 +55,22 @@ C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Demo\obj\Debug\Demo.cs
 C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Demo\obj\Debug\Demo.csproj.CopyComplete
 C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Demo\obj\Debug\Demo.exe
 C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\Demo\obj\Debug\Demo.pdb
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Demo\bin\Debug\Demo.exe.config
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Demo\bin\Debug\Demo.exe
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Demo\bin\Debug\Demo.pdb
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Demo\bin\Debug\FormFactory.exe
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Demo\bin\Debug\Forms.exe
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Demo\bin\Debug\DB.exe
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Demo\bin\Debug\FormFactory.pdb
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Demo\bin\Debug\FormFactory.exe.config
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Demo\bin\Debug\Forms.pdb
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Demo\bin\Debug\Forms.exe.config
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Demo\bin\Debug\DB.pdb
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Demo\bin\Debug\DB.exe.config
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Demo\obj\Debug\Demo.csprojAssemblyReference.cache
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Demo\obj\Debug\Demo.Properties.Resources.resources
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Demo\obj\Debug\Demo.csproj.GenerateResource.cache
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Demo\obj\Debug\Demo.csproj.CoreCompileInputs.cache
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Demo\obj\Debug\Demo.csproj.CopyComplete
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Demo\obj\Debug\Demo.exe
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\Demo\obj\Debug\Demo.pdb

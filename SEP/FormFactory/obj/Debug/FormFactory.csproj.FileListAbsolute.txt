@@ -30,3 +30,19 @@ C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\FormFactory\obj\Debug\
 C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\FormFactory\obj\Debug\FormFactory.csproj.CopyComplete
 C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\FormFactory\obj\Debug\FormFactory.exe
 C:\Users\nhath\Desktop\OOP\Simple-Enterprise-Framwork\SEP\FormFactory\obj\Debug\FormFactory.pdb
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\FormFactory\bin\Debug\FormFactory.exe.config
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\FormFactory\bin\Debug\FormFactory.exe
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\FormFactory\bin\Debug\FormFactory.pdb
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\FormFactory\bin\Debug\Forms.exe
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\FormFactory\bin\Debug\DB.exe
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\FormFactory\bin\Debug\Forms.pdb
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\FormFactory\bin\Debug\Forms.exe.config
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\FormFactory\bin\Debug\DB.pdb
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\FormFactory\bin\Debug\DB.exe.config
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\FormFactory\obj\Debug\FormFactory.csprojAssemblyReference.cache
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\FormFactory\obj\Debug\FormFactory.Properties.Resources.resources
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\FormFactory\obj\Debug\FormFactory.csproj.GenerateResource.cache
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\FormFactory\obj\Debug\FormFactory.csproj.CoreCompileInputs.cache
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\FormFactory\obj\Debug\FormFactory.csproj.CopyComplete
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\FormFactory\obj\Debug\FormFactory.exe
+C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\FormFactory\obj\Debug\FormFactory.pdb

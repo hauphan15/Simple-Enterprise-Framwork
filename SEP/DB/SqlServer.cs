@@ -390,5 +390,49 @@ namespace DB
             return true;
         }
 
+        //Delete
+        public bool DeleteData(Dictionary<string, string> selectedRow, Table table)
+        {
+            StringBuilder whereFields = new StringBuilder();
+
+            var lst = table.lstColumnNames.ToList();
+
+            for (int i = 0; i < lst.Count; i++)
+            {
+                whereFields.Append(lst[i] + "=@param" + i + " ");
+                if (i != lst.Count - 1)
+                {
+                    whereFields.Append(" AND ");
+                }
+            }
+
+            string query = "DELETE FROM " + table.tableName + " WHERE " + whereFields;
+
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+            }
+            connection.Open();
+            var s = "";
+            try
+            {
+                SqlCommand sqlCommand = connection.CreateCommand();
+                sqlCommand.CommandText = query;
+                for (int i = 0; i < lst.Count; i++)
+                {
+                    sqlCommand.Parameters.AddWithValue("@param" + i, selectedRow[lst[i]].ToString());
+                }
+                s = sqlCommand.CommandText.ToString();
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                return false;
+            }
+            connection.Close();
+
+            return true;
+        }
     }
 }
