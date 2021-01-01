@@ -13,7 +13,7 @@ namespace Forms
 {
     public partial class UpdateForm : BaseForm
     {
-        public UpdateForm()
+        private UpdateForm()
         {
             InitializeComponent();
         }

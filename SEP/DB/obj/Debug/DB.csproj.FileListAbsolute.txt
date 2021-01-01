@@ -25,3 +25,10 @@ C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\DB
 C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\DB\obj\Debug\DB.csproj.CoreCompileInputs.cache
 C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\DB\obj\Debug\DB.exe
 C:\Users\MrHauPhan\Desktop\OOP Design Patterns\Simple-Enterprise-Framwork\SEP\DB\obj\Debug\DB.pdb
+C:\Users\nhath\OneDrive\Desktop\git\Simple-Enterprise-Framwork\SEP\DB\bin\Debug\DB.exe.config
+C:\Users\nhath\OneDrive\Desktop\git\Simple-Enterprise-Framwork\SEP\DB\bin\Debug\DB.exe
+C:\Users\nhath\OneDrive\Desktop\git\Simple-Enterprise-Framwork\SEP\DB\bin\Debug\DB.pdb
+C:\Users\nhath\OneDrive\Desktop\git\Simple-Enterprise-Framwork\SEP\DB\obj\Debug\DB.csprojAssemblyReference.cache
+C:\Users\nhath\OneDrive\Desktop\git\Simple-Enterprise-Framwork\SEP\DB\obj\Debug\DB.csproj.CoreCompileInputs.cache
+C:\Users\nhath\OneDrive\Desktop\git\Simple-Enterprise-Framwork\SEP\DB\obj\Debug\DB.exe
+C:\Users\nhath\OneDrive\Desktop\git\Simple-Enterprise-Framwork\SEP\DB\obj\Debug\DB.pdb

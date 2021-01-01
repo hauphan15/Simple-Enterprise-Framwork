@@ -31,7 +31,7 @@ namespace Forms
             if (string.IsNullOrEmpty(check))
             {
                 this.Hide();
-                var mainForm = new MainForm(txtServerName.Text, txtDbName.Text, txtUsername.Text, txtPassword.Text);
+                var mainForm = new MainForm(sqlServer);
                 mainForm.Show();
             }
             else

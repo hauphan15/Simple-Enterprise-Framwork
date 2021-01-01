@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DB;
+using Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +11,40 @@ namespace FormFactory
 {
     public interface IForm
     {
-         Form createForm(string serverName, string databaseName, string username, string password);
+        Form GetForm(Table table, SqlServer server, Dictionary<string, object> row);
+    }
+
+    public class FLogin : IForm
+    {
+        public Form GetForm(Table table, SqlServer server, Dictionary<string, object> row)
+        {
+            return new LoginForm();
+        }
+    }
+
+    public class FMain : IForm
+    {
+
+        public Form GetForm(Table table, SqlServer server, Dictionary<string, object> row)
+        {
+            return new MainForm(server);
+        }
+    }
+
+    public class FAdd : IForm
+    {
+
+        public Form GetForm(Table table, SqlServer server, Dictionary<string, object> row)
+        {
+            return new AddForm(table, server);
+        }
+    }
+
+    public class FUpdate : IForm
+    {
+        public Form GetForm(Table table, SqlServer server, Dictionary<string, object> row)
+        {
+            return new UpdateForm(table, server, row);
+        }
     }
 }

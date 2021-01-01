@@ -1,9 +1,9 @@
-﻿using System;
+﻿using FormFactory;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FormFactory;
 
 namespace Demo
 {
@@ -20,8 +20,8 @@ namespace Demo
             //IForm main = new MainFormFactory();
             //Application.Run(main.createForm("DESKTOP-TPBIN8U", "StudentList", "", ""));
 
-            IForm login = new LoginFormFactory();
-            Application.Run(login.createForm("","","","")); //factory method
+            MyFactory factory = new MyFactory();
+            Application.Run(factory.ReturnForm(null, null, null, "login")); //factory method
         }
     }
 }

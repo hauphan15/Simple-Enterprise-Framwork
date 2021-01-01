@@ -21,11 +21,11 @@ namespace Forms
         private SqlServer databaseConnection = null;
 
 
-        public MainForm(string server, string databaseName, string username, string password)
+        public MainForm(SqlServer server)
         {
             InitializeComponent();
 
-            databaseConnection = new SqlServer(databaseName, server, username, password);
+            databaseConnection = server;
 
             databaseConnection.GetTableName();
             databaseConnection.ReadColumnName();

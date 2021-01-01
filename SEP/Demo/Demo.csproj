@@ -77,8 +77,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DB\DB.csproj">
+      <Project>{7BD439E1-C6CD-47A1-B502-3D874FC5A686}</Project>
+      <Name>DB</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FormFactory\FormFactory.csproj">
-      <Project>{224120fe-fe18-44d9-9d6d-14d0c53de1a7}</Project>
+      <Project>{67455f15-f1bc-4f7d-a019-6e79a2b2d022}</Project>
       <Name>FormFactory</Name>
     </ProjectReference>
     <ProjectReference Include="..\Forms\Forms.csproj">

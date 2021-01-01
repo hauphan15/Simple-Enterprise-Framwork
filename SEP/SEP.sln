@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forms", "Forms\Forms.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{215747EF-DA9E-4A24-BDBD-2E2435F56E13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormFactory", "FormFactory\FormFactory.csproj", "{224120FE-FE18-44D9-9D6D-14D0C53DE1A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormFactory", "FormFactory\FormFactory.csproj", "{67455F15-F1BC-4F7D-A019-6E79A2B2D022}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{215747EF-DA9E-4A24-BDBD-2E2435F56E13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{215747EF-DA9E-4A24-BDBD-2E2435F56E13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{215747EF-DA9E-4A24-BDBD-2E2435F56E13}.Release|Any CPU.Build.0 = Release|Any CPU
-		{224120FE-FE18-44D9-9D6D-14D0C53DE1A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{224120FE-FE18-44D9-9D6D-14D0C53DE1A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{224120FE-FE18-44D9-9D6D-14D0C53DE1A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{224120FE-FE18-44D9-9D6D-14D0C53DE1A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67455F15-F1BC-4F7D-A019-6E79A2B2D022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67455F15-F1BC-4F7D-A019-6E79A2B2D022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67455F15-F1BC-4F7D-A019-6E79A2B2D022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67455F15-F1BC-4F7D-A019-6E79A2B2D022}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
