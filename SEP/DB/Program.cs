@@ -10,12 +10,11 @@ namespace DB
     {
         static void Main(string[] args)
         {
-            //var sr = new SqlServer("", @".\SQLEXPRESS", "", "");
-            var sr = new SqlServer("StudentList", @"DESKTOP-TPBIN8U", "", "");
-            sr.GetTableName();
-            sr.ReadColumnName();
-            sr.ReadColumnType();
-            sr.ReadData();
+            DatabaseContext database = new DatabaseContext(new MySQLDatabase("internetbanking", "localhost", "root", ""));
+            database.GetTableName();
+            database.ReadColumnType();
+            database.ReadColumnName();
+            database.ReadData();
         }
     }
 }
