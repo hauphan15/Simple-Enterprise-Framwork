@@ -51,7 +51,7 @@
             this.cbxTable.FormattingEnabled = true;
             this.cbxTable.Location = new System.Drawing.Point(34, 34);
             this.cbxTable.Name = "cbxTable";
-            this.cbxTable.Size = new System.Drawing.Size(161, 33);
+            this.cbxTable.Size = new System.Drawing.Size(248, 33);
             this.cbxTable.TabIndex = 1;
             this.cbxTable.SelectedIndexChanged += new System.EventHandler(this.cbxTable_SelectedIndexChanged);
             // 

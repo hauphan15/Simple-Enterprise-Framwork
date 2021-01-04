@@ -8,6 +8,7 @@ namespace DB
 {
     public interface MyDatabase
     {
+        List<Table> GetTableList();
         string CheckConnection();
         void GetTableName();
         void ReadColumnName();

@@ -18,14 +18,14 @@ namespace Forms
             InitializeComponent();
         }
 
-        private SqlServer databaseConnection = null;
+        private MyDatabase databaseConnection = null;
 
 
-        public MainForm(SqlServer server)
+        public MainForm(MyDatabase myDatabase)
         {
             InitializeComponent();
 
-            databaseConnection = server;
+            databaseConnection = myDatabase;
 
             databaseConnection.GetTableName();
             databaseConnection.ReadColumnName();
@@ -33,16 +33,16 @@ namespace Forms
             databaseConnection.ReadPrimaryKey();
             databaseConnection.ReadNotNullColumnName();
             databaseConnection.ReadColumnAutoIncrement();
-            databaseConnection.ReadDataTable(databaseConnection.tables[0].tableName);
+            databaseConnection.ReadDataTable(databaseConnection.GetTableList()[0].tableName);
 
             //thêm các bảng vào combobox
-            foreach (var table in databaseConnection.tables)
+            foreach (var table in databaseConnection.GetTableList())
             {
                 cbxTable.Items.Add(table.tableName);
             }
             cbxTable.SelectedIndex = 0;
             //mặc định chạy lên là load table[0]
-            LoadTable(databaseConnection.tables[0].tableName);
+            LoadTable(databaseConnection.GetTableList()[0].tableName);
         }
 
         private void LoadTable(string tableName)
@@ -52,7 +52,7 @@ namespace Forms
             gridView.Refresh();
 
             Table selectedTable = new Table();
-            foreach (var table in databaseConnection.tables)
+            foreach (var table in databaseConnection.GetTableList())
             {
                 if (table.tableName == tableName)
                 {
@@ -151,7 +151,7 @@ namespace Forms
 
         private Table findTable()
         {
-            return databaseConnection.tables.FirstOrDefault(x => x.tableName == cbxTable.Text);
+            return databaseConnection.GetTableList().FirstOrDefault(x => x.tableName == cbxTable.Text);
         }
 
         private void button4_Click(object sender, EventArgs e)

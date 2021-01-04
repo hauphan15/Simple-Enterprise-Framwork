@@ -18,7 +18,7 @@ namespace DB
 
         private MySqlConnection connection { get; set; }
 
-        public List<Table> tables = new List<Table>();
+        private List<Table> tables = new List<Table>();
 
         public MySQLDatabase(string database, string host, string username, string password)
         {
@@ -29,6 +29,10 @@ namespace DB
             connection = MySQLConnector.GetConnection(this);
         }
 
+        public List<Table> GetTableList()
+        {
+            return tables;
+        }
         public string CheckConnection()
         {
             try
@@ -168,14 +172,15 @@ namespace DB
                 connection.Close();
             }
             connection.Open();
-            string query = "SELECT Col.Column_Name from INFORMATION_SCHEMA.TABLE_CONSTRAINTS Tab, INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE Col WHERE Col.Constraint_Name = Tab.Constraint_Name AND Col.Table_Name = Tab.Table_Name AND Constraint_Type = 'PRIMARY KEY' AND Col.Table_Name =  @tableName";
+            
             foreach (var table in tables)
             {
+                string query = "SHOW KEYS FROM " + table.tableName + " WHERE Key_name = 'PRIMARY'";
+
                 MySqlCommand sqlCommand;
                 sqlCommand = connection.CreateCommand();
                 sqlCommand.CommandText = query;
-                sqlCommand.Parameters.AddWithValue("@tableName", table.tableName);
-
+                
                 using (DbDataReader reader = sqlCommand.ExecuteReader())
                 {
                     if (reader.HasRows)
@@ -272,13 +277,14 @@ namespace DB
                 connection.Close();
             }
             connection.Open();
-            string query = "SELECT name FROM sys.identity_columns " + "WHERE object_id = OBJECT_ID(@tableName)";
+           
             foreach (var table in tables)
             {
+                string query = "show columns from " + table.tableName + " where extra like '%auto_increment%'";
+
                 MySqlCommand sqlCommand;
                 sqlCommand = connection.CreateCommand();
                 sqlCommand.CommandText = query;
-                sqlCommand.Parameters.AddWithValue("@tableName", table.tableName);
 
                 using (DbDataReader reader = sqlCommand.ExecuteReader())
                 {

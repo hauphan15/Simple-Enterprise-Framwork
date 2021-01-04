@@ -20,18 +20,30 @@ namespace Forms
             txtDbName.Text = "";
             txtUsername.Text = "";
             txtPassword.Text = "";
+            cbxDatabaseType.Items.Add("SQLServer");
+            cbxDatabaseType.Items.Add("MySQL");
+            cbxDatabaseType.Text = "SQLServer";
         }
 
-        private SqlServer sqlServer = null;
+        private DatabaseContext databaseContext = null;
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            sqlServer = new SqlServer(txtDbName.Text, txtServerName.Text, txtUsername.Text, txtPassword.Text);
-            string check = sqlServer.CheckConnection();
+            if (cbxDatabaseType.Text == "SQLServer")
+            {
+                databaseContext = new DatabaseContext(new SQLServerDatabase(txtServerName.Text, txtDbName.Text, txtUsername.Text, txtPassword.Text));
+            }
+            else if (cbxDatabaseType.Text == "MySQL")
+            {
+                databaseContext = new DatabaseContext(new MySQLDatabase(txtDbName.Text, txtServerName.Text, txtUsername.Text, txtPassword.Text));
+            }
+
+            string check = databaseContext.database.CheckConnection();
+
             if (string.IsNullOrEmpty(check))
             {
                 this.Hide();
-                var mainForm = new MainForm(sqlServer);
+                var mainForm = new MainForm(databaseContext.database);
                 mainForm.Show();
             }
             else
@@ -45,6 +57,20 @@ namespace Forms
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbxDatabaseType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxDatabaseType.Text == "SQLServer")
+            {
+                lbServerName.Visible = true;
+                lbHost.Visible = false;
+            }
+            if (cbxDatabaseType.Text == "MySQL")
+            {
+                lbServerName.Visible = false;
+                lbHost.Visible = true;
+            }
         }
     }
 }

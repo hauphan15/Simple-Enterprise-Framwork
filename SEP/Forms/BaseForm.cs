@@ -17,23 +17,23 @@ namespace Forms
         {
             InitializeComponent();
         }
-        public BaseForm(Table table, SqlServer server)
+        public BaseForm(Table table, MyDatabase myDatabase)
         {
             InitializeComponent();
             Mytable = table;
-            Myserver = server;
+            MyDatabase = myDatabase;
             CreateForm();
         }
-        public BaseForm(Table table, SqlServer server, Dictionary<string, object> row)
+        public BaseForm(Table table, MyDatabase myDatabase, Dictionary<string, object> row)
         {
             InitializeComponent();
             Mytable = table;
-            Myserver = server;
+            MyDatabase = myDatabase;
             Myrow = row;
             CreateForm();
         }
         protected Table Mytable = null;
-        protected SqlServer Myserver = null;
+        protected MyDatabase MyDatabase = null;
         protected Dictionary<string, object> Myrow = new Dictionary<string, object>();
 
 

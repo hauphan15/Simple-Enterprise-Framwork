@@ -18,7 +18,7 @@ namespace Forms
             InitializeComponent();
         }
 
-        public AddForm(Table table, SqlServer server) : base(table, server)
+        public AddForm(Table table, MyDatabase myDatabase) : base(table, myDatabase)
         {
             InitializeComponent();
             base.Name = "Add Form";
@@ -39,7 +39,7 @@ namespace Forms
                 }
                 i++;
             }
-            if(base.Myserver.InsertData(values, base.Mytable))
+            if(base.MyDatabase.InsertData(values, base.Mytable))
             {
                 base.ClearTextBox();
                 MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK);

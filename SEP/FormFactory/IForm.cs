@@ -11,12 +11,12 @@ namespace FormFactory
 {
     public interface IForm
     {
-        Form GetForm(Table table, SqlServer server, Dictionary<string, object> row);
+        Form GetForm(Table table, MyDatabase myDatabase, Dictionary<string, object> row);
     }
 
     public class FLogin : IForm
     {
-        public Form GetForm(Table table, SqlServer server, Dictionary<string, object> row)
+        public Form GetForm(Table table, MyDatabase myDatabase, Dictionary<string, object> row)
         {
             return new LoginForm();
         }
@@ -25,26 +25,26 @@ namespace FormFactory
     public class FMain : IForm
     {
 
-        public Form GetForm(Table table, SqlServer server, Dictionary<string, object> row)
+        public Form GetForm(Table table, MyDatabase myDatabase, Dictionary<string, object> row)
         {
-            return new MainForm(server);
+            return new MainForm(myDatabase);
         }
     }
 
     public class FAdd : IForm
     {
 
-        public Form GetForm(Table table, SqlServer server, Dictionary<string, object> row)
+        public Form GetForm(Table table, MyDatabase myDatabase, Dictionary<string, object> row)
         {
-            return new AddForm(table, server);
+            return new AddForm(table, myDatabase);
         }
     }
 
     public class FUpdate : IForm
     {
-        public Form GetForm(Table table, SqlServer server, Dictionary<string, object> row)
+        public Form GetForm(Table table, MyDatabase myDatabase, Dictionary<string, object> row)
         {
-            return new UpdateForm(table, server, row);
+            return new UpdateForm(table, myDatabase, row);
         }
     }
 }

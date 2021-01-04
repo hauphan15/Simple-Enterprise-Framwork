@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.txtServerName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbServerName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDbName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,6 +38,8 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.cbxDatabaseType = new System.Windows.Forms.ComboBox();
+            this.lbHost = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtServerName
@@ -47,19 +49,17 @@
             this.txtServerName.Size = new System.Drawing.Size(163, 20);
             this.txtServerName.TabIndex = 0;
             // 
-            // label1
+            // lbServerName
             // 
-            this.label1.AutoSize = false;
-            this.label1.Location = new System.Drawing.Point(110, 77);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Server Name";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbServerName.Location = new System.Drawing.Point(110, 77);
+            this.lbServerName.Name = "lbServerName";
+            this.lbServerName.Size = new System.Drawing.Size(90, 13);
+            this.lbServerName.TabIndex = 1;
+            this.lbServerName.Text = "Server Name";
+            this.lbServerName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
             // 
-            this.label2.AutoSize = false;
             this.label2.Location = new System.Drawing.Point(110, 117);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 13);
@@ -76,7 +76,6 @@
             // 
             // label3
             // 
-            this.label3.AutoSize = false;
             this.label3.Location = new System.Drawing.Point(110, 157);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 13);
@@ -93,7 +92,6 @@
             // 
             // label4
             // 
-            this.label4.AutoSize = false;
             this.label4.Location = new System.Drawing.Point(110, 197);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -129,11 +127,31 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // cbxDatabaseType
+            // 
+            this.cbxDatabaseType.FormattingEnabled = true;
+            this.cbxDatabaseType.Location = new System.Drawing.Point(426, 74);
+            this.cbxDatabaseType.Name = "cbxDatabaseType";
+            this.cbxDatabaseType.Size = new System.Drawing.Size(121, 21);
+            this.cbxDatabaseType.TabIndex = 10;
+            this.cbxDatabaseType.SelectedIndexChanged += new System.EventHandler(this.cbxDatabaseType_SelectedIndexChanged);
+            // 
+            // lbHost
+            // 
+            this.lbHost.AutoSize = true;
+            this.lbHost.Location = new System.Drawing.Point(171, 78);
+            this.lbHost.Name = "lbHost";
+            this.lbHost.Size = new System.Drawing.Size(29, 13);
+            this.lbHost.TabIndex = 11;
+            this.lbHost.Text = "Host";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(586, 328);
+            this.Controls.Add(this.lbHost);
+            this.Controls.Add(this.cbxDatabaseType);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label4);
@@ -142,7 +160,7 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDbName);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbServerName);
             this.Controls.Add(this.txtServerName);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
@@ -154,7 +172,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtServerName;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbServerName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDbName;
         private System.Windows.Forms.Label label3;
@@ -163,5 +181,7 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.ComboBox cbxDatabaseType;
+        private System.Windows.Forms.Label lbHost;
     }
 }

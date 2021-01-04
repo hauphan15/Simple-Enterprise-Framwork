@@ -18,7 +18,7 @@ namespace Forms
             InitializeComponent();
         }
 
-        public UpdateForm(Table table, SqlServer server, Dictionary<string, object> row) : base(table, server, row)
+        public UpdateForm(Table table, MyDatabase myDatabase, Dictionary<string, object> row) : base(table, myDatabase, row)
         {
             InitializeComponent();
             base.Name = "UpdateForm";
@@ -60,14 +60,14 @@ namespace Forms
                 }
                 i++;
             }
-            if (base.Myserver.UpdateData(values, base.Mytable, base.Myrow))
+            if (base.MyDatabase.UpdateData(values, base.Mytable, base.Myrow))
             {
                 base.ClearTextBox();
-                MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Cập nhập thành công!", "Thông báo", MessageBoxButtons.OK);
             }
             else
             {
-                MessageBox.Show("Thêm thất bại, vui lòng kiểm tra lại dữ liệu!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Cập nhập thất bại, vui lòng kiểm tra lại dữ liệu!", "Thông báo", MessageBoxButtons.OK);
             }
             return 1;
         }

@@ -18,7 +18,7 @@ namespace DB
 
         private SqlConnection connection { get; set; }
 
-        public List<Table> tables = new List<Table>();
+        private List<Table> tables = new List<Table>();
 
         public SQLServerDatabase(string dbName, string dtSource, string userName, string password)
         {
@@ -27,6 +27,11 @@ namespace DB
             this.userName = userName;
             this.password = password;
             connection = SQLServerConnector.GetConnection(this);
+        }
+
+        public List<Table> GetTableList()
+        {
+            return tables;
         }
 
         public string CheckConnection()
