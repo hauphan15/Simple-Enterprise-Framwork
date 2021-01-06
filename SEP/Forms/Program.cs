@@ -16,8 +16,6 @@ namespace Forms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
-            //Application.Run(new MainForm("DESKTOP-TPBIN8U", "StudentList", "", ""));
         }
     }
 }

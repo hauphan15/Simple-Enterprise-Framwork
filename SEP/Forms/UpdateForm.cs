@@ -18,7 +18,7 @@ namespace Forms
             InitializeComponent();
         }
 
-        public UpdateForm(Table table, MyDatabase myDatabase, Dictionary<string, object> row) : base(table, myDatabase, row)
+        public UpdateForm(Table table, DatabaseContext myDatabase, Dictionary<string, object> row) : base(table, myDatabase, row)
         {
             InitializeComponent();
             base.Name = "UpdateForm";

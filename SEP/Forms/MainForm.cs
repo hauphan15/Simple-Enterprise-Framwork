@@ -18,14 +18,15 @@ namespace Forms
             InitializeComponent();
         }
 
-        private MyDatabase databaseConnection = null;
+        //private MyDatabase databaseConnection = null;
+        private DatabaseContext databaseConnection = null;
 
 
-        public MainForm(MyDatabase myDatabase)
+        public MainForm(DatabaseContext databaseContext)
         {
             InitializeComponent();
 
-            databaseConnection = myDatabase;
+            databaseConnection = databaseContext;
 
             databaseConnection.GetTableName();
             databaseConnection.ReadColumnName();

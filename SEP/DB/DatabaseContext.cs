@@ -15,6 +15,11 @@ namespace DB
             database = myDatabase;//set Strategy
         }
 
+        public List<Table> GetTableList()
+        {
+            return database.GetTableList();
+        }
+
         public string CheckConnection()
         {
             return database.CheckConnection();

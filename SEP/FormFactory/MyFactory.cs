@@ -10,7 +10,7 @@ namespace FormFactory
 {
     public class MyFactory
     {
-        public Form ReturnForm(Table table, MyDatabase myDatabase, Dictionary<string, object> row, string formName)
+        public Form ReturnForm(Table table, DatabaseContext myDatabase, Dictionary<string, object> row, string formName)
         {
             switch (formName)
             {

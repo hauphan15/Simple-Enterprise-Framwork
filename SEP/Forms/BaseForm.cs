@@ -17,14 +17,19 @@ namespace Forms
         {
             InitializeComponent();
         }
-        public BaseForm(Table table, MyDatabase myDatabase)
+
+        protected Table Mytable = null;
+        protected DatabaseContext MyDatabase = null;
+        protected Dictionary<string, object> Myrow = new Dictionary<string, object>();
+
+        public BaseForm(Table table, DatabaseContext myDatabase)
         {
             InitializeComponent();
             Mytable = table;
             MyDatabase = myDatabase;
             CreateForm();
         }
-        public BaseForm(Table table, MyDatabase myDatabase, Dictionary<string, object> row)
+        public BaseForm(Table table, DatabaseContext myDatabase, Dictionary<string, object> row)
         {
             InitializeComponent();
             Mytable = table;
@@ -32,10 +37,6 @@ namespace Forms
             Myrow = row;
             CreateForm();
         }
-        protected Table Mytable = null;
-        protected MyDatabase MyDatabase = null;
-        protected Dictionary<string, object> Myrow = new Dictionary<string, object>();
-
 
         private void CreateForm()
         {

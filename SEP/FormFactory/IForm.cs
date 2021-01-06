@@ -11,12 +11,12 @@ namespace FormFactory
 {
     public interface IForm
     {
-        Form GetForm(Table table, MyDatabase myDatabase, Dictionary<string, object> row);
+        Form GetForm(Table table, DatabaseContext myDatabase, Dictionary<string, object> row);
     }
 
     public class FLogin : IForm
     {
-        public Form GetForm(Table table, MyDatabase myDatabase, Dictionary<string, object> row)
+        public Form GetForm(Table table, DatabaseContext myDatabase, Dictionary<string, object> row)
         {
             return new LoginForm();
         }
@@ -25,7 +25,7 @@ namespace FormFactory
     public class FMain : IForm
     {
 
-        public Form GetForm(Table table, MyDatabase myDatabase, Dictionary<string, object> row)
+        public Form GetForm(Table table, DatabaseContext myDatabase, Dictionary<string, object> row)
         {
             return new MainForm(myDatabase);
         }
@@ -34,7 +34,7 @@ namespace FormFactory
     public class FAdd : IForm
     {
 
-        public Form GetForm(Table table, MyDatabase myDatabase, Dictionary<string, object> row)
+        public Form GetForm(Table table, DatabaseContext myDatabase, Dictionary<string, object> row)
         {
             return new AddForm(table, myDatabase);
         }
@@ -42,7 +42,7 @@ namespace FormFactory
 
     public class FUpdate : IForm
     {
-        public Form GetForm(Table table, MyDatabase myDatabase, Dictionary<string, object> row)
+        public Form GetForm(Table table, DatabaseContext myDatabase, Dictionary<string, object> row)
         {
             return new UpdateForm(table, myDatabase, row);
         }

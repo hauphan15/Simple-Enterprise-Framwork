@@ -38,12 +38,12 @@ namespace Forms
                 databaseContext = new DatabaseContext(new MySQLDatabase(txtDbName.Text, txtServerName.Text, txtUsername.Text, txtPassword.Text));
             }
 
-            string check = databaseContext.database.CheckConnection();
+            string check = databaseContext.CheckConnection();
 
             if (string.IsNullOrEmpty(check))
             {
                 this.Hide();
-                var mainForm = new MainForm(databaseContext.database);
+                var mainForm = new MainForm(databaseContext);
                 mainForm.Show();
             }
             else

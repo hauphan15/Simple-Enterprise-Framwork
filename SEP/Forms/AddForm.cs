@@ -18,7 +18,7 @@ namespace Forms
             InitializeComponent();
         }
 
-        public AddForm(Table table, MyDatabase myDatabase) : base(table, myDatabase)
+        public AddForm(Table table, DatabaseContext myDatabase) : base(table, myDatabase)
         {
             InitializeComponent();
             base.Name = "Add Form";

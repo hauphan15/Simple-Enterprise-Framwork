@@ -10,11 +10,6 @@ namespace DB
     {
         static void Main(string[] args)
         {
-            DatabaseContext database = new DatabaseContext(new MySQLDatabase("internetbanking", "localhost", "root", ""));
-            database.GetTableName();
-            database.ReadColumnType();
-            database.ReadColumnName();
-            database.ReadData();
         }
     }
 }
