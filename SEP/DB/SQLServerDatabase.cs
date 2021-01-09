@@ -214,14 +214,15 @@ namespace DB
                 {
                     if (reader.HasRows)
                     {
+                        table.rows = new List<Row>();
                         while (reader.Read())
                         {
-                            Dictionary<string, string> record = new Dictionary<string, string>();
+                            Row row = new Row();
                             for (int i = 0; i < reader.FieldCount; i++)
                             {
-                                record.Add(table.lstColumnNames[i], reader.GetValue(i).ToString());
+                                row[table.lstColumnNames[i]] = reader.GetValue(i).ToString();
                             }
-                            table.rows.Add(record);
+                            table.rows.Add(row);
                         }
                     }
                 }
@@ -247,15 +248,15 @@ namespace DB
             {
                 if (reader.HasRows)
                 {
+                    table.rows = new List<Row>();
                     while (reader.Read())
-                    {
-                        table.rows = new List<Dictionary<string, string>>();
-                        Dictionary<string, string> record = new Dictionary<string, string>();
+                    {    
+                        Row row = new Row();
                         for (int i = 0; i < reader.FieldCount; i++)
                         {
-                            record.Add(table.lstColumnNames[i], reader.GetValue(i).ToString());
+                            row[table.lstColumnNames[i]] = reader.GetValue(i).ToString();
                         }
-                        table.rows.Add(record);
+                        table.rows.Add(row);
                     }
                 }
             }

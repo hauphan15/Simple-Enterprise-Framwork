@@ -68,17 +68,23 @@ namespace Forms
             }
 
             //Load dòng
-            foreach (var dictionary in selectedTable.rows) // mỗi row là 1 dictionary
+            foreach (var row in selectedTable.rows) // mỗi row là 1 dictionary
             {
                 int rowIndex = this.gridView.Rows.Add();
                 var newRow = this.gridView.Rows[rowIndex];
                 int idx = 0;
 
-                foreach (KeyValuePair<string, string> entry in dictionary)
+                foreach(var column in selectedTable.lstColumnNames)
                 {
-                    newRow.Cells[idx].Value = entry.Value;
+                    newRow.Cells[idx].Value = row[column];
                     idx++;
                 }
+
+                //foreach (KeyValuePair<string, string> entry in dictionary)
+                //{
+                //    newRow.Cells[idx].Value = entry.Value;
+                //    idx++;
+                //}
             }
 
             //Orther properties

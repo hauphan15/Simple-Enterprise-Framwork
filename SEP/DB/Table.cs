@@ -15,7 +15,8 @@ namespace DB
         public string AutoIncrementColumnNames { get; set; }
         public List<string> lstColumnNames = new List<string>();
         public Dictionary<string, string> typeOfColumns = new Dictionary<string, string>();
-        public List<Dictionary<string, string>> rows = new List<Dictionary<string, string>>();
+        //public List<Dictionary<string, string>> rows = new List<Dictionary<string, string>>();
+        public List<Row> rows = new List<Row>();
         public void AddColumnName(string name)
         {
             lstColumnNames.Add(name);
@@ -31,13 +32,5 @@ namespace DB
             typeOfColumns.Add(columnName, type);
         }
 
-        public void AddValueOfColumn(string columnName, string value)
-        {
-            Dictionary<string, string> row = new Dictionary<string, string>
-            {
-                { columnName, value }
-            };
-            rows.Add(row);
-        }
     }
 }
