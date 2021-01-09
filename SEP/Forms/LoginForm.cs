@@ -31,7 +31,7 @@ namespace Forms
         {
             if (cbxDatabaseType.Text == "SQLServer")
             {
-                databaseContext = new DatabaseContext(new SQLServerDatabase(txtServerName.Text, txtDbName.Text, txtUsername.Text, txtPassword.Text));
+                databaseContext = new DatabaseContext(new SQLServerDatabase(txtDbName.Text, txtServerName.Text, txtUsername.Text, txtPassword.Text));
             }
             else if (cbxDatabaseType.Text == "MySQL")
             {

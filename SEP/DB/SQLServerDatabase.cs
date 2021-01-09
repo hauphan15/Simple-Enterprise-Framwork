@@ -243,13 +243,13 @@ namespace DB
             SqlCommand sqlCommand;
             sqlCommand = connection.CreateCommand();
             sqlCommand.CommandText = query;
-            table.rows = new List<Dictionary<string, string>>();
             using (DbDataReader reader = sqlCommand.ExecuteReader())
             {
                 if (reader.HasRows)
                 {
                     while (reader.Read())
                     {
+                        table.rows = new List<Dictionary<string, string>>();
                         Dictionary<string, string> record = new Dictionary<string, string>();
                         for (int i = 0; i < reader.FieldCount; i++)
                         {
