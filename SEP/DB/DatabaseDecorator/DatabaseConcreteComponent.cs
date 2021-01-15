@@ -50,16 +50,21 @@ namespace DB.DatabaseDecorator
             StringBuilder whereFields = new StringBuilder();
 
             var lst = table.lstColumnNames.ToList();
-
-            for (int i = 0; i < lst.Count; i++)
+            if (string.IsNullOrEmpty(table.primaryKey))
             {
-                whereFields.Append(lst[i] + "=@param" + i + " ");
-                if (i != lst.Count - 1)
+                for (int i = 0; i < lst.Count; i++)
                 {
-                    whereFields.Append(" AND ");
+                    whereFields.Append(lst[i] + "=@param" + i + " ");
+                    if (i != lst.Count - 1)
+                    {
+                        whereFields.Append(" AND ");
+                    }
                 }
             }
-
+            else
+            {
+                whereFields.Append(table.primaryKey + "=@param0");
+            }
             string query = "DELETE FROM " + table.tableName + " WHERE " + whereFields;
 
             if (connection.GetState() == ConnectionState.Open)
@@ -77,14 +82,17 @@ namespace DB.DatabaseDecorator
                     sqlCommand.AddParameter("@param" + i, selectedRow[lst[i]].ToString());
                 }
                 s = sqlCommand.GetCommandText();
-                sqlCommand.ExecuteNonQuery();
+                var result = sqlCommand.ExecuteNonQuery();
+                connection.Close();
+                if (result != 0)
+                    return true;
+                return false;
             }
             catch (Exception e)
             {
                 connection.Close();
                 return false;
             }
-            connection.Close();
 
             return true;
         }
@@ -151,17 +159,27 @@ namespace DB.DatabaseDecorator
                 sqlCommand.AddQuery(query);
                 for (int i = 0; i < lstColumn.Count; i++)
                 {
+                    if (table.typeOfColumns[lstColumn[i]] == "datetime" || table.typeOfColumns[lstColumn[i]] == "date")
+                    {
+                        var date = values[lstColumn[i]].ToString().Split('/');
+                        var date1 = date[2].Split(' ');
+                        var datetemp = date1[0] + "/" + date[0] + "/" + date[1];
+                        values[lstColumn[i]] = datetemp;
+                    }
                     //sqlCommand.Parameters.AddWithValue("@param" + i, values[lstColumn[i]]);
                     sqlCommand.AddParameter("@param" + i, values[lstColumn[i]]);
                 }
-                sqlCommand.ExecuteNonQuery();
+                var result = sqlCommand.ExecuteNonQuery();
+                connection.Close();
+                if (result != 0)
+                    return true;
+                return false;
             }
             catch
             {
                 connection.Close();
                 return false;
             }
-            connection.Close();
 
             return true;
         }
@@ -287,9 +305,9 @@ namespace DB.DatabaseDecorator
             sqlCommand.AddQuery(query);
             using (DbDataReader reader = sqlCommand.ExecuteReader())
             {
+                table.rows = new List<Row>();
                 if (reader.HasRows)
                 {
-                    table.rows = new List<Row>();
                     while (reader.Read())
                     {
                         Row row = new Row();
@@ -399,6 +417,13 @@ namespace DB.DatabaseDecorator
                 var count = 0;
                 for (int i = 0; i < lst.Count; i++)
                 {
+                    if (table.typeOfColumns[lst[i]] == "datetime" || table.typeOfColumns[lst[i]] == "date")
+                    {
+                        var date = values[lst[i]].ToString().Split('/');
+                        var date1 = date[2].Split(' ');
+                        var datetemp = date1[0] + "/" + date[0] + "/" + date[1];
+                        values[lst[i]] = datetemp;
+                    }
                     sqlCommand.AddParameter("@parama" + i, values[lst[i]].ToString());
                     //sqlCommand.Parameters.AddWithValue("@parama" + i, values[lst[i]].ToString());
                     if (!havePrimaryKey && count == 0)
@@ -414,14 +439,17 @@ namespace DB.DatabaseDecorator
                     }
                 }
                 s = sqlCommand.GetCommandText();
-                sqlCommand.ExecuteNonQuery();
+                var result = sqlCommand.ExecuteNonQuery();
+                connection.Close();
+                if (result != 0)
+                    return true;
+                return false;
             }
             catch (Exception e)
             {
                 connection.Close();
                 return false;
             }
-            connection.Close();
 
             return true;
         }

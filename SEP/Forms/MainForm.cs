@@ -123,36 +123,36 @@ namespace Forms
         //delete button
         private void button3_Click(object sender, EventArgs e)
         {
-
-            var res = MessageBox.Show("Bạn có muốn xóa dòng dữ liệu hiện tại?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (res == DialogResult.OK)
+            var rows = findTable().rows.Count;
+            if (rows > 0)
             {
-                Dictionary<string, string> selectedRow = new Dictionary<string, string>();
-
-                var lst = findTable().lstColumnNames;
-
-                var i = 0;
-                foreach (var column in lst)
+                var res = MessageBox.Show("Bạn có muốn xóa dòng dữ liệu hiện tại?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (res == DialogResult.OK)
                 {
-                    string value = gridView.Rows[gridView.CurrentRow.Index].Cells[i].Value.ToString();//get value of each cell in row
-                    selectedRow.Add(column, value); //add to dictionary: columnName - value
-                    i++;
-                }
+                    Dictionary<string, string> selectedRow = new Dictionary<string, string>();
 
-                var delete = databaseConnection.DeleteData(selectedRow, findTable());
+                    var lst = findTable().lstColumnNames;
+                    var i = 0;
+                    foreach (var column in lst)
+                    {
+                        string value = gridView.Rows[gridView.CurrentRow.Index].Cells[i].Value.ToString();//get value of each cell in row
+                        selectedRow.Add(column, value); //add to dictionary: columnName - value
+                        i++;
+                    }
+                    var delete = databaseConnection.DeleteData(selectedRow, findTable());
+                    if (delete)
+                    {
+                        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại", "Thông báo", MessageBoxButtons.OK);
+                    }
+                    databaseConnection.ReadDataTable(cbxTable.Text);
+                    LoadTable(cbxTable.Text);
+                    //refresh datagrid vỉew
 
-                if (delete)
-                {
-                    MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK);
                 }
-                else
-                {
-                    MessageBox.Show("Xóa thất bại", "Thông báo", MessageBoxButtons.OK);
-                }
-
-                //refresh datagrid vỉew
-                databaseConnection.ReadDataTable(cbxTable.Text);
-                LoadTable(cbxTable.Text);
             }
         }
 
