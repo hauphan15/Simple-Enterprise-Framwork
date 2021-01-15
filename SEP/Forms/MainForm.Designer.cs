@@ -40,16 +40,16 @@
             // gridView
             // 
             this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridView.Location = new System.Drawing.Point(34, 104);
+            this.gridView.Location = new System.Drawing.Point(55, 115);
             this.gridView.Name = "gridView";
-            this.gridView.Size = new System.Drawing.Size(724, 309);
+            this.gridView.Size = new System.Drawing.Size(1487, 706);
             this.gridView.TabIndex = 0;
             // 
             // cbxTable
             // 
             this.cbxTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxTable.FormattingEnabled = true;
-            this.cbxTable.Location = new System.Drawing.Point(34, 34);
+            this.cbxTable.Location = new System.Drawing.Point(55, 34);
             this.cbxTable.Name = "cbxTable";
             this.cbxTable.Size = new System.Drawing.Size(248, 33);
             this.cbxTable.TabIndex = 1;
@@ -87,9 +87,9 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(683, 75);
+            this.button4.Location = new System.Drawing.Point(1447, 36);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(95, 33);
             this.button4.TabIndex = 5;
             this.button4.Text = "refresh";
             this.button4.UseVisualStyleBackColor = true;
@@ -99,7 +99,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1584, 861);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -107,6 +107,7 @@
             this.Controls.Add(this.cbxTable);
             this.Controls.Add(this.gridView);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             this.ResumeLayout(false);

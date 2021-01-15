@@ -20,6 +20,7 @@ namespace Forms
             txtDbName.Text = "";
             txtUsername.Text = "";
             txtPassword.Text = "";
+            textBox1.Text = "3306";
             cbxDatabaseType.Items.Add("SQLServer");
             cbxDatabaseType.Items.Add("MySQL");
             cbxDatabaseType.Text = "SQLServer";
@@ -35,7 +36,7 @@ namespace Forms
             }
             else if (cbxDatabaseType.Text == "MySQL")
             {
-                databaseContext = new DatabaseContext(new MySQLDatabase(txtDbName.Text, txtServerName.Text, txtUsername.Text, txtPassword.Text));
+                databaseContext = new DatabaseContext(new MySQLDatabase(txtDbName.Text, txtServerName.Text, txtUsername.Text, txtPassword.Text, textBox1.Text));
             }
 
             string check = databaseContext.CheckConnection();

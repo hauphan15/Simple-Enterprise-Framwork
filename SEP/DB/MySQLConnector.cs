@@ -25,7 +25,7 @@ namespace DB
         private static MySqlConnection MakeConnection(MySQLDatabase mySql)
         {
             string connectionString = "Server=" + mySql.host + ";Database=" + mySql.database
-               + ";port=3306" + ";User Id=" + mySql.username + ";password=" + mySql.password;
+               + ";port=" + mySql.port + ";User Id=" + mySql.username + ";password=" + mySql.password;
 
             MySqlConnection connection = new MySqlConnection(connectionString);
             return connection;

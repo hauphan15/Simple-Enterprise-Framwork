@@ -111,6 +111,7 @@ namespace Forms
                 Size = new Size(100, 30),
                 Text = "Cancel"
             };
+            btn2.Click += new EventHandler(btn2_click);
 
             Label hidelabel = new Label();
             hidelabel.Location = new Point(0, 150 + space);
@@ -124,6 +125,11 @@ namespace Forms
             {
                 AddorUpdate();
             }
+        }
+
+        private void btn2_click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private bool CheckisNull()

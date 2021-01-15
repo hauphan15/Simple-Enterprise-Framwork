@@ -15,17 +15,19 @@ namespace DB
         public string host { get; set; }
         public string username { get; set; }
         public string password { get; set; }
+        public string port { get; set; }
 
         private MySqlConnection connection { get; set; }
 
         private List<Table> tables = new List<Table>();
 
-        public MySQLDatabase(string database, string host, string username, string password)
+        public MySQLDatabase(string database, string host, string username, string password, string port)
         {
             this.database = database;
             this.host = host;
             this.username = username;
             this.password = password;
+            this.port = port;
             connection = MySQLConnector.GetConnection(this);
         }
 
@@ -187,7 +189,7 @@ namespace DB
                     {
                         while (reader.Read())
                         {
-                            table.primaryKey = reader.GetString(0);
+                            table.primaryKey = reader.GetString(4);
                         }
                     }
                 }
@@ -254,7 +256,15 @@ namespace DB
                         Row row = new Row();
                         for (int i = 0; i < reader.FieldCount; i++)
                         {
-                            row[table.lstColumnNames[i]] = reader.GetValue(i).ToString();
+                            try
+                            {
+                                row[table.lstColumnNames[i]] = reader.GetValue(i).ToString();
+                            }
+                            catch
+                            {
+                                row[table.lstColumnNames[i]] = "";
+                            }                       
+
                         }
                         table.rows.Add(row);
                     }
@@ -357,14 +367,29 @@ namespace DB
             StringBuilder setFields = new StringBuilder();
             StringBuilder whereFields = new StringBuilder();
             var lst = table.lstColumnNames.Where(x => x != table.AutoIncrementColumnNames).ToList();
+            var havePrimaryKey = string.IsNullOrEmpty(table.primaryKey);
             for (int i = 0; i < lst.Count; i++)
             {
                 setFields.Append(lst[i] + "=@parama" + i + " ");
-                whereFields.Append(lst[i] + "=@paramb" + i + " ");
+                if (havePrimaryKey)
+                {
+                    whereFields.Append(lst[i] + "=@paramb" + i + " ");
+                }
                 if (i != lst.Count - 1)
                 {
                     setFields.Append(" , ");
-                    whereFields.Append(" and ");
+                    if (havePrimaryKey)
+                    {
+                        whereFields.Append(" and ");
+                    }
+
+                }
+                else
+                {
+                    if (!havePrimaryKey)
+                    {
+                        whereFields.Append(table.primaryKey + "=@paramb");
+                    }
                 }
             }
             string query = "update " + table.tableName + " set " + setFields + " where " + whereFields;
@@ -379,10 +404,26 @@ namespace DB
             {
                 MySqlCommand sqlCommand = connection.CreateCommand();
                 sqlCommand.CommandText = query;
+                var count = 0;
                 for (int i = 0; i < lst.Count; i++)
                 {
+                    if (table.typeOfColumns[lst[i]] == "datetime")
+                    {
+                        var date = values[lst[i]].ToString().Split('/');
+                        var date1 = date[2].Split(' ');
+                        var datetemp = date1[0] + "/" + date[0] + "/" + date[1];
+                        values[lst[i]] = datetemp;
+                    }
                     sqlCommand.Parameters.AddWithValue("@parama" + i, values[lst[i]].ToString());
-                    sqlCommand.Parameters.AddWithValue("@paramb" + i, oldValues[lst[i]].ToString());
+                    if (!havePrimaryKey && count == 0)
+                    {
+                        count++;
+                        sqlCommand.Parameters.AddWithValue("@paramb", oldValues[table.primaryKey].ToString());
+                    }
+                    else
+                    {
+                        sqlCommand.Parameters.AddWithValue("@paramb" + i, oldValues[lst[i]].ToString());
+                    }
                 }
                 s = sqlCommand.CommandText.ToString();
                 sqlCommand.ExecuteNonQuery();

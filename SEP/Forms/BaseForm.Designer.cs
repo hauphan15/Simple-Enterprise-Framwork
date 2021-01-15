@@ -33,11 +33,10 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = false;
+            this.label1.Font = new System.Drawing.Font("Arial", 14F);
             this.label1.Location = new System.Drawing.Point(150, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(500, 25);
-            this.label1.Font = new System.Drawing.Font("Arial", 14);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -46,13 +45,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
             this.Name = "BaseForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BaseForm";
-            this.AutoScroll = true;
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
