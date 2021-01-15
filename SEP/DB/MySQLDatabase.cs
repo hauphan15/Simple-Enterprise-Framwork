@@ -28,7 +28,7 @@ namespace DB
             this.username = username;
             this.password = password;
             this.port = port;
-            connection = new MySQLConnection(this);
+            connection = new MySQLConnectionAdapter(this);
             coreDatabase = new DatabaseConcreteComponent(ref connection, ref tables);
         }
 

@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace DB.SQLCommand
 {
-    public class SQLServerCommand : SQLCommandInterface
+    public class SQLServerCommandAdapter : SQLCommandInterface
     {
         SqlCommand sqlCommand;
-        public SQLServerCommand(SqlCommand sqlCommand)
+        public SQLServerCommandAdapter(SqlCommand sqlCommand)
         {
             this.sqlCommand = sqlCommand;
         }

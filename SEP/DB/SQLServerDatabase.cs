@@ -25,7 +25,7 @@ namespace DB
             this.dtSource = dtSource;
             this.userName = userName;
             this.password = password;
-            connection = new SQLServerConnection(this);
+            connection = new SQLServerConnectionAdapter(this);
             coreDatabase = new DatabaseConcreteComponent(ref connection, ref tables);
         }
 

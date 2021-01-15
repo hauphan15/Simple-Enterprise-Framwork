@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace DB.SQLCommand
 {
-    class MySQLCommand : SQLCommandInterface
+    class MySQLCommandAdaptercs : SQLCommandInterface
     {
         MySqlCommand sqlCommand;
 
-        public MySQLCommand(MySqlCommand sqlCommand)
+        public MySQLCommandAdaptercs(MySqlCommand sqlCommand)
         {
             this.sqlCommand = sqlCommand;
         }

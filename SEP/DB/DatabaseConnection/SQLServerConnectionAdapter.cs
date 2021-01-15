@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
+
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -10,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace DB.DatabaseConnection
 {
-    class MySQLConnection : DBConnectionInterface
+    class SQLServerConnectionAdapter : DBConnectionInterface
     {
-        MySqlConnection connection;
-        public MySQLConnection(MySQLDatabase sql)
+        private SqlConnection connection;
+        public SQLServerConnectionAdapter(SQLServerDatabase sql)
         {
-            connection = MySQLConnector.GetConnection(sql);
+            connection = SQLServerConnector.GetConnection(sql);
         }
 
         public void Close()
@@ -25,9 +26,10 @@ namespace DB.DatabaseConnection
 
         public SQLCommandInterface CreateCommand()
         {
-            MySqlCommand sqlCommand = connection.CreateCommand();
-            return new MySQLCommand(sqlCommand);
+            SqlCommand sqlCommand = connection.CreateCommand();
+            return new SQLServerCommandAdapter(sqlCommand);
         }
+
 
 
         public DataTable GetSchema(string name)
