@@ -26,9 +26,9 @@ namespace DB.SQLCommand
             sqlCommand.CommandText = query;
         }
 
-        public void ExecuteNonQuery()
+        public int ExecuteNonQuery()
         {
-            sqlCommand.ExecuteNonQuery();
+            return sqlCommand.ExecuteNonQuery();
         }
 
         public DbDataReader ExecuteReader()

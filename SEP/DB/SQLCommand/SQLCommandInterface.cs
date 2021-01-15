@@ -13,7 +13,7 @@ namespace DB.SQLCommand
         DbDataReader ExecuteReader();
         void AddQuery(string query);
         void AddParameter(string parameterName, object value);
-        void ExecuteNonQuery();
+        int ExecuteNonQuery();
 
         string GetCommandText();
 
