@@ -163,8 +163,9 @@ namespace Forms
 
         private void button4_Click(object sender, EventArgs e)
         {
-            databaseConnection.ReadDataTable(cbxTable.Text);
-            LoadTable(cbxTable.Text);
+            var loginForm = new LoginForm();
+            this.Close();
+            loginForm.ShowDialog();
         }
 
         private Dictionary<string, object> getCurrentRow()

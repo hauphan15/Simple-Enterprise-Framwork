@@ -13,12 +13,8 @@ namespace DB
         private SQLServerConnector() { }
         public static SqlConnection GetConnection(SQLServerDatabase sql)
         {
-            if (connection == null)//nếu chưa khởi tạo thì tạo mới
-            {
-                return MakeConnection(sql);
-
-            }
-            return connection;//nếu đã khởi tạo rồi thì trả về connection hiện tại
+            connection = MakeConnection(sql);
+            return connection;
         }
 
         private static SqlConnection MakeConnection(SQLServerDatabase sql)
@@ -42,7 +38,7 @@ namespace DB
                     + ";Password=" + sql.password + "; Integrated Security = True";
             }
 
-            return connection = new SqlConnection(connectionString);
+            return new SqlConnection(connectionString);
         }
     }
 }

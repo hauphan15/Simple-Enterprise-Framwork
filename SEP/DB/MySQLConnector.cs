@@ -14,11 +14,7 @@ namespace DB
         private MySQLConnector() { }
         public static MySqlConnection GetConnection(MySQLDatabase mySql)
         {
-            if (connection == null)//nếu chưa khởi tạo thì tạo mới
-            {
-                return MakeConnection(mySql);
-
-            }
+            connection = MakeConnection(mySql);
             return connection;//nếu đã khởi tạo rồi thì trả về connection hiện tại
         }
 
